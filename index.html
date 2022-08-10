@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./icon.png">
+    <title>Aritmética</title>
+
+    <style>
+
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            width: 100%;
+            height: 100%;
+
+        }
+
+        form{
+            
+            width: 300px;
+            margin: 2% auto;
+            text-align: center;
+        }
+
+        input{
+            display: block;
+            margin: 10px auto;
+            width: 250px;
+            height: 30px;
+        }
+
+        h4 {
+            position: absolute;
+            left: 42.5%;
+            top: 30%;
+            width: 300px;
+            font-size: 5px;
+            color: rgba(255, 255, 255, 0.548);
+        }
+        .caminho_container{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .caminho_container img{
+            width: 60px;
+            
+        } 
+        @keyframes modalAberto{
+            from{
+                opacity: 0;
+                transform: translate(0,-60px,0);
+            }
+            to{
+                opacity: 1;
+                transform: translate(0,0,0);
+            }
+        }
+        .mostrar .modalAberto{
+           animation: modalAberto .3s;
+       }
+ 
+       .modalAberto-container{
+           width: 100%;
+           height: 100%;
+           position: fixed;
+           top: 0;
+           left: 0;
+           z-index: 9999;
+           display: none;
+           justify-content: center;
+           align-items: top;
+       }
+       .modalAberto-container.mostrar{
+            display: flex;
+       }
+       .modalAberto-container.mostrar2{
+            display: flex;
+       }
+       .modalAberto-container.mostrar3{
+            display: flex;
+       }
+       .modalAberto-container.mostrar4{
+            display: flex;
+       }
+       .modalAberto-container.mostrar5{
+            display: flex;
+       }
+       .modalAberto-container.fecharr{
+            display: none;
+       }
+       
+       .modalAberto-container.fecharr2{
+            display: none;
+       }
+       
+       .modalAberto-container.fecharr3{
+            display: none;
+       }
+       
+       .modalAberto-container.fecharr4{
+            display: none;
+       }
+       
+       .modalAberto-container.fecharr5{
+            display: none;
+       }
+       
+
+       .modalAberto{
+           background-color: white;
+           margin-top: 10%;
+           width: 100%;
+           height: 60%;
+           justify-content: center;
+           align-items: center;
+           
+       }
+       
+       .modalAberto img{width: 150px;margin: 20% 30%;}
+        .fechar{
+                cursor: pointer;
+            }
+
+            @keyframes modalFechado{
+            from{
+                opacity: 0;
+                transform: translate(0,-60px,0);
+            }
+            to{
+                opacity: 1;
+                transform: translate(0,0,0);
+            }
+        }
+        .mostrar .modalFechado{
+           animation: modalFechado .3s;
+       }
+ 
+       .modalFechado-container{
+           width: 100%;
+           height: 100%;
+           position: fixed;
+           top: 0;
+           left: 0;
+           z-index: 9999;
+           display: none;
+           justify-content: center;
+           align-items: top;
+       }
+       .modalFechado-container.mostrar{
+            display: flex;
+       }
+       .modalFechado-container.fecharr{
+            display: none;
+       }
+       .modalFechado{
+           background-color: white;
+           margin-top: 10%;
+           width: 100%;
+           height: 60%;
+           justify-content: center;
+           align-items: center;
+           
+       }
+       
+       .modalFechado img{width: 150px;margin: 20% 30%;}
+        
+            @keyframes modalGanhou{
+            from{
+                opacity: 0;
+                transform: translate(0,-60px,0);
+            }
+            to{
+                opacity: 1;
+                transform: translate(0,0,0);
+            }
+        }
+        .mostrar .modalGanhou{
+           animation: modalFechado .3s;
+       }
+ 
+       .modalGanhou-container{
+           width: 100%;
+           height: 100%;
+           position: fixed;
+           top: 0;
+           left: 0;
+           z-index: 9999;
+           display: none;
+           justify-content: center;
+           align-items: top;
+       }
+       .modalGanhou-container.mostrar{
+            display: flex;
+       }
+       .modalGanhou-container.fecharr{
+            display: none;
+       }
+       
+       
+
+       .modalGanhou{
+           background-color: white;
+           margin-top: 10%;
+           width: 100%;
+           height: 60%;
+           justify-content: center;
+           align-items: center;
+           
+       }
+       
+       .modalGanhou img{width: 200px;margin: 25% 30%;}
+        
+    </style>
+
+</head>
+<body>
+    
+
+    <form>
+
+        <h3>Ache o caminho certo pelas portas!</h3>
+        <!--  
+        <input type="password" placeholder="Senha" id="senha">
+        <input type="submit" onclick="logar(); return false">-->
+
+    </form>
+
+    <div class="caminho_container">
+        <div class="porta1"><img id="1" src="Porta_Fechada.jpg"></div>
+        <div class="porta2"><img id="2" src="Porta_Fechada.jpg"></div>
+        <div class="porta3"><img id="3" src="Porta_Fechada.jpg"></div>
+        <div class="porta4"><img id="4" src="Porta_Fechada.jpg"></div>
+        <div class="porta5"><img id="5" src="Porta_Fechada.jpg"></div>
+        
+    </div>
+
+    
+   <div id="modalAberto-porta" class="modalAberto-container">
+       <div class="modalAberto">
+   
+        <img src="Porta_Aberta.png" class="fechar">
+       </div>
+   </div>
+   <div id="modalFechado-porta" class="modalFechado-container">
+       <div class="modalFechado">
+   
+        <img src="Porta_Fechada.png" class="fechar">
+       </div>
+   </div>
+   <div id="modalGanhou-porta" class="modalGanhou-container">
+       <div class="modalGanhou">
+   
+      <a href="destino.html">  <img src="Porta_Ganhou.png" class="fechar"></a>
+       </div>
+   </div>
+        
+    <script>
+    var ganhou = 0;
+    function Checar (Id) {
+        
+        id = generateRandomInt(1,6);
+        function generateRandomInt(min,max){
+        return Math.floor((Math.random() * (max-min)) +min);
+    }id = 3;
+        
+        if(Id == id){ganhou=ganhou+1;
+            const  perde = document.querySelector('.caminho_container');
+            perde.addEventListener('click',function(){
+                iniciaModalFechado('modalFechado-porta')
+            })
+
+            
+            
+            alert('Porta correta '+id+ '    '+ganhou);
+
+           if(ganhou == 1){
+            
+                var  ganha = document.querySelector('.caminho_container');
+            ganha.addEventListener('click',function(){
+                iniciaModalAberto('modalAberto-porta')
+            })}
+           if(ganhou == 2){
+            
+                var  ganha = document.querySelector('.caminho_container');
+            ganha.addEventListener('click',function(){
+                iniciaModalAberto2('modalAberto-porta')
+            })}
+           if(ganhou == 3){
+            
+                var  ganha = document.querySelector('.caminho_container');
+            ganha.addEventListener('click',function(){
+                iniciaModalAberto3('modalAberto-porta')
+            })}
+           if(ganhou == 4){
+            
+                var  ganha = document.querySelector('.caminho_container');
+            ganha.addEventListener('click',function(){
+                iniciaModalAberto4('modalAberto-porta')
+            })}
+           if(ganhou == 5){
+            
+                var  ganha = document.querySelector('.caminho_container');
+            ganha.addEventListener('click',function(){
+                iniciaModalGanhou('modalGanhou-porta')
+            })}
+            
+           
+           
+           
+        }
+        else{  alert('Porta errada ' +ganhou);
+             ganha = document.querySelector('.caminho_container');
+             ganha.addEventListener('click',function(){
+                iniciaModalAberto('modalfechado-porta')
+            })
+            const  perde = document.querySelector('.caminho_container');
+            perde.addEventListener('click',function(){
+                iniciaModalFechado('modalFechado-porta')
+            })
+           ganhou = 0;
+        }
+          
+
+        
+        
+ }
+        function iniciaModalAberto (modalAbertoID) {
+               const modalAberto = document.getElementById(modalAbertoID);
+               if(modalAberto){
+                     modalAberto.classList.add('mostrar');
+                    
+                    
+                    modalAberto.addEventListener('click', (evento) => {
+                        if(evento.target.className == 'fechar'){
+                            
+                            modalAberto.classList.remove('mostrar');
+                            modalAberto.classList.add('fecharr');
+                            
+                            
+                            
+                        }
+                });
+            }
+        }
+        function iniciaModalAberto2 (modalAbertoID) {
+               const modalAberto = document.getElementById(modalAbertoID);
+               if(modalAberto){
+                     modalAberto.classList.remove('fecharr');
+                     modalAberto.classList.add('mostrar2');
+                    
+                    
+                    modalAberto.addEventListener('click', (evento) => {
+                        if(evento.target.className == 'fechar'){
+                            
+                            modalAberto.classList.remove('mostrar2');
+                            modalAberto.classList.add('fecharr2');
+                            
+                            
+                            
+                        }
+                });
+            }
+        }
+        function iniciaModalAberto3 (modalAbertoID) {
+               const modalAberto = document.getElementById(modalAbertoID);
+               if(modalAberto){
+                     modalAberto.classList.remove('fecharr2');
+                     modalAberto.classList.add('mostrar3');
+                    
+                    
+                    modalAberto.addEventListener('click', (evento) => {
+                        if(evento.target.className == 'fechar'){
+                            
+                            modalAberto.classList.remove('mostrar3');
+                            modalAberto.classList.add('fecharr3');
+                            
+                            
+                            
+                        }
+                });
+            }
+        }
+        function iniciaModalAberto4 (modalAbertoID) {
+               const modalAberto = document.getElementById(modalAbertoID);
+               if(modalAberto){
+                     modalAberto.classList.remove('fecharr3');
+                     modalAberto.classList.add('mostrar4');
+                    
+                    
+                    modalAberto.addEventListener('click', (evento) => {
+                        if(evento.target.className == 'fechar'){
+                            
+                            modalAberto.classList.remove('mostrar4');
+                            modalAberto.classList.add('fecharr4');
+                            
+                            
+                            
+                        }
+                });
+            }
+        }
+        function iniciaModalGanhou (modalGanhouID) {
+               const modalGanhou = document.getElementById(modalGanhouID);
+               if(modalGanhou){
+                     
+                     modalGanhou.classList.add('mostrar');
+                    
+                    
+                    modalGanhou.addEventListener('click', (evento) => {
+                        if(evento.target.className == 'fechar'){
+                            
+                            modalGanhou.classList.remove('mostrar');
+                            modalGanhou.classList.add('fecharr');
+                            
+                            
+                            
+                        }
+                });
+            }
+        }
+       
+        function iniciaModalFechado (modalFechadoID) {
+               const modalFechado = document.getElementById(modalFechadoID);
+               if(modalFechado){
+                    modalFechado.classList.add('mostrar');
+                    modalFechado.addEventListener('click', (evento) => {
+                        if(evento.target.className == 'fechar'){
+                            modalFechado.classList.remove('mostrar');
+                            
+                           
+                        }
+                });
+            }
+        }
+        
+        
+   
+               
+     const  porta1 = document.querySelector('.porta1');
+     porta1.addEventListener('click',function(){
+         Checar('1')
+     })
+     const  porta2 = document.querySelector('.porta2');
+     porta2.addEventListener('click',function(){
+         Checar('2')
+     })
+     const  porta3 = document.querySelector('.porta3');
+     porta3.addEventListener('click',function(){
+         Checar('3')
+     })
+     const  porta4 = document.querySelector('.porta4');
+     porta4.addEventListener('click',function(){
+         Checar('4')
+     })
+     const  porta5 = document.querySelector('.porta5');
+     porta5.addEventListener('click',function(){
+         Checar('5')
+     })
+
+    </script>
+
+    </body>
+
+</html>
