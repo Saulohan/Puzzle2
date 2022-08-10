@@ -279,7 +279,7 @@
 
             
             
-            alert('Porta correta '+id+ '    '+ganhou);
+            alert('Porta correta. Acertos Seguidos: '+ganhou);
 
            if(ganhou == 1){
             
@@ -316,7 +316,7 @@
            
            
         }
-        else{  alert('Porta errada ' +ganhou);
+        else{  alert('Porta errada. Acertos Seguidos: '+ganhou);
              ganha = document.querySelector('.caminho_container');
              ganha.addEventListener('click',function(){
                 iniciaModalAberto('modalfechado-porta')
